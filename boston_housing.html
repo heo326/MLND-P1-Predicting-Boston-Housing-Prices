@@ -571,7 +571,7 @@ Ensure that you have executed the code block once you are done. You'll know the 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Housing prices are not discrete value. These are continuous value. So we should evaluate how close the predicted values are to the true values and we should choose regression metrics. I think Mean Squared Error is most appropriate because it is the most common regression metric to measure model performance and I can't be sure how many outliers exist in the data set.</p>
+<p><strong>Answer: </strong> Housing prices are not discrete value. These are continuous value. So we should evaluate how close the predicted values are to the actual values and we should choose regression metrics. I think Mean Squared Error is most appropriate. Because MSE square errors, large errors have relatively greater influence and it makes the model more precise. If there were extreme outliers in the dataset, MAE, which does not square the errors, would be more appropriate because MSE is influenced a great deal by extreme values and it could possibly make the model unpredictable. However, the dataset seems follow normal distribution and there is no extreme outlier as we looked in step 1. The mean and median is very close and also the max and min value is not extremly big or small. As a result, I decided to use MSE to predict housing prices and analyze the total error.</p>
 
 </div>
 </div>
@@ -687,7 +687,7 @@ Ensure that you have executed the code block once you are done. You'll know the 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Cross-validation is a technique that is more accurrate than simple train/test method. At first cross-validation splits data into training and testing subsets doing analysis on training data and validating on testing data. Second, it splits again the data in a way different from previous split and validates. After repeating it several times, the validation results are averaged. Basically, cross-validation works in this way. There are several types of cross-validation including k-fold cross-validation which is we reviewed in the course. When using grid search, cross-validating helps determine which parameter tune gives the best performance.</p>
+<p><strong>Answer: </strong> Cross-validation is a technique that is more accurate than simple train/test method. At first cross-validation splits data into training and testing subsets doing analysis on training data and validating on testing data. Second, it splits again the data in a way different from previous split and validates. After repeating it several times, the validation results are averaged. Basically, cross-validation works in this way. There are several types of cross-validation including k-fold cross-validation which is we reviewed in the course. When using grid search, cross-validating helps determine which parameter tune gives the best performance. In the code above, I'm using cv=20 int the GridSearchCV method. It means the model is using 20-fold cross-validation instead of the default 3-fold cross-validation. In k-fold cross-validation, the accuracy of the model increases as the value of k increases but it takes a lot of time to train the data to the model. I thought the dataset is not too big to train, so I decided to use 20-fold cross-validation for the accuracy of the model.</p>
 
 </div>
 </div>
